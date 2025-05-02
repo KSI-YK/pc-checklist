@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>PC移行チェックリスト - 作業者一覧</title>
+  <script>
+    const assignments = [
+      { user: "田中", pc: "KIKAI000" },
+      { user: "佐藤", pc: "KIKAI001" },
+      { user: "山田", pc: "KIKAI002" }
+    ];
+    function loadList() {
+      const container = document.getElementById("list");
+      assignments.forEach(a => {
+        const link = document.createElement("a");
+        link.href = `detail.html?pc=${a.pc}&user=${a.user}`;
+        link.textContent = `👤 ${a.user}（${a.pc}）`;
+        link.style.display = "block";
+        link.style.margin = "1em 0";
+        container.appendChild(link);
+      });
+    }
+    window.onload = loadList;
+  </script>
+</head>
+<body>
+  <h1>PC移行チェックリスト</h1>
+  <div id="list"></div>
+</body>
+</html>
